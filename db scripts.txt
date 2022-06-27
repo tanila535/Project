@@ -1,0 +1,79 @@
+USE [Railway_Reservation]
+GO
+/****** Object:  Table [dbo].[BookingDetails]    Script Date: 20-06-2022 10:17:11 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[BookingDetails](
+	[TrainId] [int] IDENTITY(1,1) NOT NULL,
+	[TravellingFrom] [varchar](50) NOT NULL,
+	[TravellingTo] [varchar](50) NOT NULL,
+	[DepartureDate] [varchar](50) NOT NULL,
+	[ReturningDate] [varchar](50) NOT NULL,
+	[Adults] [int] NOT NULL,
+	[Children] [int] NOT NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[TrainId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[PassengerProfile]    Script Date: 20-06-2022 10:17:11 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[PassengerProfile](
+	[PassengerId] [int] IDENTITY(1,1) NOT NULL,
+	[FirstName] [varchar](50) NOT NULL,
+	[LastName] [varchar](50) NOT NULL,
+	[EmailId] [varchar](50) NOT NULL,
+	[Password] [varchar](50) NOT NULL,
+	[Gender] [varchar](50) NOT NULL,
+	[Age] [int] NOT NULL,
+	[MobileNumber] [varchar](10) NOT NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[PassengerId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[PaymentDetails]    Script Date: 20-06-2022 10:17:11 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[PaymentDetails](
+	[PaymentDetailId] [int] IDENTITY(1,1) NOT NULL,
+	[CardOwnerName] [nvarchar](50) NOT NULL,
+	[CardNumber] [nvarchar](16) NOT NULL,
+	[ExpirationDate] [nvarchar](5) NOT NULL,
+	[SecurityCode] [nvarchar](3) NOT NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[PaymentDetailId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[TrainDetails]    Script Date: 20-06-2022 10:17:11 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[TrainDetails](
+	[TrainId] [int] NOT NULL,
+	[TrainName] [varchar](50) NOT NULL,
+	[TrainType] [varchar](50) NOT NULL,
+	[SourceStation] [varchar](50) NOT NULL,
+	[DestinationStation] [varchar](50) NOT NULL,
+	[ArrivalTime] [varchar](50) NOT NULL,
+	[DepartureTime] [varchar](50) NOT NULL,
+	[Distance] [int] NOT NULL,
+	[TrainCharges] [int] NOT NULL,
+ CONSTRAINT [PK] PRIMARY KEY CLUSTERED 
+(
+	[TrainId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
